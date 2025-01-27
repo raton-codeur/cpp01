@@ -5,10 +5,10 @@ int main()
 {
 	Zombie z;
 	z.announce();
-	Zombie zz("Fred");
-	zz.announce();
-	Zombie* zzz = newZombie("Bob");
-	zzz->announce();
-	delete zzz;
+	Zombie fred("Fred");
+	fred.announce();
+	Zombie* bob = newZombie("Bob");
+	bob->announce();
+	delete bob;
 	randomChump("Jim");
 }

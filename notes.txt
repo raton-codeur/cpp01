@@ -1,0 +1,8 @@
+
+
+
+-
+#pragma once
+
+à la place de #ifndef, #def, #endif
+-
