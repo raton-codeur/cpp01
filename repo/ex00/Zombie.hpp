@@ -8,7 +8,11 @@ class Zombie
 		std::string name;
 	public :
 				Zombie();
+				Zombie(std::string name);
 		void	announce();
 };
+
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif
