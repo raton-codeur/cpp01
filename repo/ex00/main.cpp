@@ -4,8 +4,8 @@
 int main()
 {
 	Zombie z;
-	z.announce();
 	Zombie fred("Fred");
+	z.announce();
 	fred.announce();
 	Zombie* bob = newZombie("Bob");
 	bob->announce();
