@@ -1,6 +1,6 @@
-NAME = ex03
+NAME = ex04
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
@@ -18,5 +18,8 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+test : re
+	./ex04 f test "<AAAAAAAAAAAA>"
 
 .PHONY: all clean fclean re
