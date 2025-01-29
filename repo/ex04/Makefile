@@ -19,7 +19,7 @@ fclean : clean
 
 re : fclean all
 
-test : re
-	./ex04 f test "<AAAAAAAAAAAA>"
+test : all
+	./$(NAME) main.cpp std STD
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
