@@ -1,4 +1,4 @@
-NAME = ex03
+NAME = humans
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)

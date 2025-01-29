@@ -1,6 +1,6 @@
-NAME = replace
+NAME = harlFilter
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp
+SRCS = main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
@@ -19,7 +19,4 @@ fclean : clean
 
 re : fclean all
 
-test : all
-	./$(NAME) main.cpp std STD
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re

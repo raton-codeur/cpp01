@@ -47,7 +47,7 @@ static void createOutputFile(const std::string& inputFilename, const std::string
 int main(int argc, char **argv)
 {
 	if (argc != 4)
-		error("usage: ./ex04 filename s1 s2");
+		error("usage : ./replace filename s1 s2");
 
 	std::string inputFilename = argv[1];
 	std::string s1 = argv[2];
