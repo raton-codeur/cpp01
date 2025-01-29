@@ -6,3 +6,57 @@
 
 à la place de #ifndef, #def, #endif
 -
+
+
+
+-
+la classe ostringstream
+
+pour "output string stream"
+
+std::ostringstream oss;
+
+dans sstream
+
+c'est un flux.
+ça permet de récupérer du texte, comme avec si on écrivait sur cout, mais dans un objet qui pourra ensuite etre converti en string par exemple.
+
+oss.str()
+pour convertir en string
+
+
+si on a ouvert un fichier dans un ifstream nommé f, on peut faire :
+
+oss << f.rdbuf();
+
+
+il existe un peu pareil que cin, pour lire une string comme si c'était un fichier :
+istringstream
+
+pour combiner ostringstream et istringstream on a stringstream.
+ça permet d'avoir un flux dans lequel on peut à la fois écrire et lire.
+-
+
+
+
+
+-
+size_t find(const std::string& str, size_t pos = 0) const;
+méthode sur une chaine
+
+pos c'est la position de départ pour commencer la recherche.
+
+elle renvoie l'index de la première occurrence de str ou std::string::npos si str n'est pas trouvée
+
+npos est l'abréviation de "no position"
+-
+
+
+
+-
+std::string& replace(size_t pos, size_t len, const std::string& str);
+
+pos : la position à partir de laquelle remplacer
+len : combien de caractères vont être remplacés
+str : la chaine à insérer
+-
