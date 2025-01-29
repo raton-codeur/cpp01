@@ -2,7 +2,7 @@
 
 HumanB::HumanB(std::string name) :
 	name(name),
-	weapon(nullptr)
+	weapon(NULL)
 {
 	std::cout << name << " created" << std::endl;
 }
