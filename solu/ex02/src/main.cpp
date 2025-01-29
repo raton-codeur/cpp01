@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
+/*   By: qhauuy <qhauuy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 10:15:15 by tblaase           #+#    #+#             */
-/*   Updated: 2022/03/17 10:27:31 by tblaase          ###   ########.fr       */
+/*   Updated: 2025/01/29 08:49:49 by qhauuy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ int main()
 	std::cout << "Value pointed to by stringPTR:\t" << stringPTR <<std::endl;
 	std::cout << "Value of stringREF:\t\t" << stringREF <<std::endl;
 
-	return (EXIT_SUCCESS);
 }
