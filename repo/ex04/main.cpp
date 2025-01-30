@@ -41,6 +41,8 @@ static std::string replace(const std::string& s, const std::string& s1, const st
 static void createOutputFile(const std::string& inputFilename, const std::string& content)
 {
 	std::ofstream f((inputFilename + ".replace").c_str());
+	if (!f)
+		error("cannot open file");
 	f << content;
 }
 
@@ -55,6 +57,7 @@ int main(int argc, char **argv)
 
 	if (s1.empty())
 		return (error("s1 cannot be empty"));
+	
 
 	std::string inputFileContent = getFileContent(inputFilename);
 	std::string outputFileContent = replace(inputFileContent, s1, s2);
