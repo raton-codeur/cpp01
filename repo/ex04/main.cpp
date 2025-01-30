@@ -38,10 +38,10 @@ int main(int argc, char **argv)
 	if (s1.empty())
 		return (error("s1 cannot be empty"));
 
-	std::ifstream inFile(inputFilename, std::ios::binary);
+	std::ifstream inFile(inputFilename.c_str(), std::ios::binary);
 	if (!inFile)
 		return (error("cannot open file '" + inputFilename + "'"));
-	std::ofstream outFile(inputFilename + ".replace");
+	std::ofstream outFile((inputFilename + ".replace").c_str());
 	if (!outFile)
 		return (error("cannot create file '" + inputFilename + ".replace'"));
 
