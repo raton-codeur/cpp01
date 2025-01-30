@@ -5,20 +5,8 @@
 
 static int error(std::string s)
 {
-	std::cerr << s << std::endl;
+	std::cerr << "error : " + s << std::endl;
 	return 1;
-}
-
-static std::string getFileContent(const std::string& filename)
-{
-	std::ifstream		f;
-	std::ostringstream	oss;
-
-	f.open(filename.c_str(), std::ios::binary);
-	if (!f)
-		error("cannot open file");
-	oss << f.rdbuf();
-	return oss.str();
 }
 
 static std::string replace(const std::string& s, const std::string& s1, const std::string& s2)
@@ -38,18 +26,10 @@ static std::string replace(const std::string& s, const std::string& s1, const st
 	return result;
 }
 
-static void createOutputFile(const std::string& inputFilename, const std::string& content)
-{
-	std::ofstream f((inputFilename + ".replace").c_str());
-	if (!f)
-		error("cannot open file");
-	f << content;
-}
-
 int main(int argc, char **argv)
 {
 	if (argc != 4)
-		return (error("usage : ./replace filename s1 s2"));
+		return (error("wrong number of arguments\nusage : ./replace <filename> <s1> <s2>"));
 
 	std::string inputFilename = argv[1];
 	std::string s1 = argv[2];
@@ -57,9 +37,17 @@ int main(int argc, char **argv)
 
 	if (s1.empty())
 		return (error("s1 cannot be empty"));
-	
 
-	std::string inputFileContent = getFileContent(inputFilename);
+	std::ifstream inFile(inputFilename, std::ios::binary);
+	if (!inFile)
+		return (error("cannot open file '" + inputFilename + "'"));
+	std::ofstream outFile(inputFilename + ".replace");
+	if (!outFile)
+		return (error("cannot create file '" + inputFilename + ".replace'"));
+
+	std::ostringstream oss;
+	oss << inFile.rdbuf();
+	std::string inputFileContent = oss.str();
 	std::string outputFileContent = replace(inputFileContent, s1, s2);
-	createOutputFile(inputFilename, outputFileContent);
+	outFile << outputFileContent;
 }
