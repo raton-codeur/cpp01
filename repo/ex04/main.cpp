@@ -31,23 +31,22 @@ int main(int argc, char **argv)
 	if (argc != 4)
 		return (error("wrong number of arguments\nusage : ./replace <filename> <s1> <s2>"));
 
-	std::string inputFilename = argv[1];
+	std::string inFileName = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
 	if (s1.empty())
 		return (error("s1 cannot be empty"));
 
-	std::ifstream inFile(inputFilename.c_str(), std::ios::binary);
+	std::ifstream inFile(inFileName.c_str(), std::ios::binary);
 	if (!inFile)
-		return (error("cannot open file '" + inputFilename + "'"));
-	std::ofstream outFile((inputFilename + ".replace").c_str());
+		return (error("cannot open file '" + inFileName + "'"));
+	std::ofstream outFile((inFileName + ".replace").c_str());
 	if (!outFile)
-		return (error("cannot create file '" + inputFilename + ".replace'"));
+		return (error("cannot create file '" + inFileName + ".replace'"));
 
 	std::ostringstream oss;
 	oss << inFile.rdbuf();
-	std::string inputFileContent = oss.str();
-	std::string outputFileContent = replace(inputFileContent, s1, s2);
-	outFile << outputFileContent;
+	std::string inFileContent = oss.str();
+	outFile << replace(inFileContent, s1, s2);;
 }
