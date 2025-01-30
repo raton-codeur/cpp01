@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
 
 static void error(std::string s)
 {
@@ -14,7 +15,7 @@ static std::string getFileContent(const std::string& filename)
 	std::ifstream		f;
 	std::ostringstream	oss;
 
-	f.open(filename, std::ios::binary);
+	f.open(filename.c_str(), std::ios::binary);
 	if (!f)
 		error("cannot open file");
 	oss << f.rdbuf();
@@ -40,7 +41,7 @@ static std::string replace(const std::string& s, const std::string& s1, const st
 
 static void createOutputFile(const std::string& inputFilename, const std::string& content)
 {
-	std::ofstream f(inputFilename + ".replace");
+	std::ofstream f((inputFilename + ".replace").c_str());
 	f << content;
 }
 

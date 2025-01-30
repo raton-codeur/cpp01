@@ -2,28 +2,28 @@
 #include <iostream>
 
 Zombie::Zombie() :
-	name("NO_NAME")
+	_name("NO_NAME")
 {
 	std::cout << "zombie created" << std::endl;
 }
 
 Zombie::Zombie(std::string name) :
-	name(name)
+	_name(name)
 {
 	std::cout << "zombie created" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << this->name << " destroyed" << std::endl;
+	std::cout << _name << " destroyed" << std::endl;
 }
 
 void Zombie::announce() const
 {
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 void Zombie::setName(std::string name)
 {
-	this->name = name;
+	_name = name;
 }
