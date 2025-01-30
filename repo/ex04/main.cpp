@@ -2,12 +2,11 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <cstdlib>
 
-static void error(std::string s)
+static int error(std::string s)
 {
 	std::cerr << s << std::endl;
-	exit(1);
+	return 1;
 }
 
 static std::string getFileContent(const std::string& filename)
@@ -48,14 +47,14 @@ static void createOutputFile(const std::string& inputFilename, const std::string
 int main(int argc, char **argv)
 {
 	if (argc != 4)
-		error("usage : ./replace filename s1 s2");
+		return (error("usage : ./replace filename s1 s2"));
 
 	std::string inputFilename = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
 	if (s1.empty())
-		error("s1 cannot be empty");
+		return (error("s1 cannot be empty"));
 
 	std::string inputFileContent = getFileContent(inputFilename);
 	std::string outputFileContent = replace(inputFileContent, s1, s2);
