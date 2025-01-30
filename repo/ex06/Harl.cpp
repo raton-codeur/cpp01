@@ -1,21 +1,21 @@
 #include "Harl.hpp"
 
-void Harl::debug()
+void Harl::_debug()
 {
 	std::cout << "[ DEBUG ] Harl is complaining" << std::endl;
 }
 
-void Harl::info()
+void Harl::_info()
 {
 	std::cout << "[ INFO ] Harl is complaining" << std::endl;
 }
 
-void Harl::warning()
+void Harl::_warning()
 {
 	std::cout << "[ WARNING ] Harl is complaining" << std::endl;
 }
 
-void Harl::error()
+void Harl::_error()
 {
 	std::cout << "[ ERROR ] Harl is complaining" << std::endl;
 }
@@ -32,13 +32,13 @@ void Harl::complain(std::string level)
 	switch (i)
 	{
 		case 0 :
-			debug();
+			_debug();
 		case 1 :
-			info();
+			_info();
 		case 2 :
-			warning();
+			_warning();
 		case 3 :
-			error();
+			_error();
 			break;
 		default :
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
